@@ -14,6 +14,7 @@
         <module>eureka-server</module>
         <module>hello-service</module>
         <module>hello-consumer</module>
+        <module>hello-feign-consumer</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
