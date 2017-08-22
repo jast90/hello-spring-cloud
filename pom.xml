@@ -16,6 +16,7 @@
         <module>hello-consumer</module>
         <module>hello-feign-consumer</module>
         <module>hello-refactor</module>
+        <module>api-gateway</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
