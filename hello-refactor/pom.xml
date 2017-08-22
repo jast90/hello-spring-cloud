@@ -11,6 +11,7 @@
     <modules>
         <module>hello-service-api</module>
         <module>hello-service-refactor</module>
+        <module>hello-feign-consumer-refactor</module>
     </modules>
 
 </project>
