@@ -1,0 +1,4 @@
+suffix: yml
+spring:
+  application:
+    name: hello    asddasdsdsadas
