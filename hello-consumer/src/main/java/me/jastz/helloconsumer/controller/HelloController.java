@@ -16,15 +16,9 @@ public class HelloController {
     @Autowired
     HelloService helloService;
 
-    @Autowired
-    private Environment environment;
-
-    @Value("${suffix:default}")
-    private String suffix;
-
     @RequestMapping("hello")
     public String hello() {
-        return helloService.hello() + " " + suffix + " " + environment.getProperty("suffix");
+        return helloService.hello();
     }
 
 }
