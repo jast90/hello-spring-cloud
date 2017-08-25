@@ -3,12 +3,12 @@ server:
   port: 8761
 eureka:
   instance:
-    hostname: 192.168.99.100
+    hostname: localhost
   client:
     fetchRegistry: false
     registerWithEureka: false
     serviceUrl:
-      defaultZone: http://192.168.99.100:8761/eureka/,http://192.168.99.100:8762/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 spring:
   application:
     name: discovery
