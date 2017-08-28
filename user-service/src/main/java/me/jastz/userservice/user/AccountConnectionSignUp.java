@@ -25,6 +25,6 @@ public class AccountConnectionSignUp implements ConnectionSignUp {
         if (account.getAccountId() != null) {
             return account.getAccountId().toString();
         }
-        return null;
+        return null;//返回null代表用户名注册失败
     }
 }

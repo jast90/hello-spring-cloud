@@ -5,8 +5,9 @@ spring:
       username: root
       password: 123456
 weibo:
-  clientId:
+  clientId: 2794712645
   clientSecret:
+  redirectUri: https://passport.yhd.com/sina/callback.do
 mybatis:
   mapper-locations: me.jastz.*.*.mapper
   type-aliases-package: me.jastz.*.*.entity
