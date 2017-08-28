@@ -11,4 +11,10 @@ public interface AccountDAO {
 
     void save(Account account);
 
+    boolean isComplete(long accountId);
+
+    boolean isPhoneNumberExist(String phoneNumber);
+
+    int updateComplete(Long accountId, boolean complete);
+
 }

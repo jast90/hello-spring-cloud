@@ -2,7 +2,8 @@
 SQLyog Enterprise v12.09 (64 bit)
 MySQL - 5.7.16-log : Database - user
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -25,10 +26,12 @@ CREATE TABLE `account` (
   `user_name` varchar(128) NOT NULL,
   `first_name` varchar(128) DEFAULT NULL,
   `last_name` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`account_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `account` */
+  `phone_number` varchar(20) DEFAULT NULL,
+  `password` varchar(522) DEFAULT NULL,
+  `is_complete` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`account_id`),
+  UNIQUE KEY `phone_number_unique` (`phone_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `userconnection` */
 

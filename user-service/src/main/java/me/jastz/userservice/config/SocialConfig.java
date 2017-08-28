@@ -2,12 +2,11 @@ package me.jastz.userservice.config;
 
 import me.jastz.userservice.user.AccountConnectionSignUp;
 import me.jastz.userservice.user.SimpleSignInAdapter;
+import me.jastz.userservice.user.currentAccount.CurrentAccount;
 import me.jastz.userservice.user.dao.AccountDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.encrypt.Encryptors;
 import org.springframework.social.UserIdSource;
@@ -41,6 +40,9 @@ public class SocialConfig implements SocialConfigurer {
     @Autowired
     private Environment environment;
 
+    @Autowired
+    private CurrentAccount currentAccount;
+
     @Override
     public void addConnectionFactories(ConnectionFactoryConfigurer connectionFactoryConfigurer, Environment environment) {
         connectionFactoryConfigurer.addConnectionFactory(
@@ -65,7 +67,7 @@ public class SocialConfig implements SocialConfigurer {
     public ProviderSignInController providerSignInController(ConnectionFactoryLocator connectionFactoryLocator
             , UsersConnectionRepository usersConnectionRepository) {
         ProviderSignInController providerSignInController = new ProviderSignInController(connectionFactoryLocator, usersConnectionRepository
-                , new SimpleSignInAdapter());
+                , new SimpleSignInAdapter(accountDAO, currentAccount));
         providerSignInController.setApplicationUrl(environment.getProperty("weibo.redirectUri"));
         return providerSignInController;
     }
