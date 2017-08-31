@@ -68,7 +68,7 @@ public class SocialConfig implements SocialConfigurer {
             , UsersConnectionRepository usersConnectionRepository) {
         ProviderSignInController providerSignInController = new ProviderSignInController(connectionFactoryLocator, usersConnectionRepository
                 , new SimpleSignInAdapter(accountDAO, currentAccount));
-        providerSignInController.setApplicationUrl(environment.getProperty("weibo.redirectUri"));
+//        providerSignInController.setApplicationUrl(environment.getProperty("weibo.redirectUri"));//不设置的话，callback默认是connect/{providerId}
         return providerSignInController;
     }
 
@@ -76,7 +76,7 @@ public class SocialConfig implements SocialConfigurer {
     public ConnectController connectController(ConnectionFactoryLocator connectionFactoryLocator, ConnectionRepository connectionRepository) {
         ConnectController controller = new ConnectController(
                 connectionFactoryLocator, connectionRepository);
-        controller.setApplicationUrl(environment.getProperty("weibo.redirectUri"));
+//        controller.setApplicationUrl(environment.getProperty("weibo.redirectUri"));
         return controller;
     }
 
