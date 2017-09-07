@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <style type="text/css">
+        form:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<form method="post" th:each="providerId : ${providerIds}" th:text="${providerId}"
+      th:action="@{/connect/}+${providerId}">providerId
+</form>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="application/javascript">
+    $(function () {
+        $("form").click(function () {
+            $(this).submit();
+        })
+    });
+</script>
+</html>
